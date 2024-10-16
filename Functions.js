@@ -12,6 +12,7 @@
 // 1. Hoisting in js function
 // 2. when we hold the value of function in variable at that time statement sequnce matter but when we are not holding the return value of the function at that 
 //    time you can call the function before it's defination also this is called as hoisting in JS
+// 3. In hosisting js engine shift the fucntion to the top of the code.
 
 
 

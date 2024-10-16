@@ -1,51 +1,112 @@
-<!-- 
-// 1. This will give the single element.
-const element  = document.getElementById('')
-const element  = document.getElementsByClasName('')
-const element  = document.getElementsByName('')
-const element  = document.querySelector('')
-const element  = document.querySelectAll('')
-
-attribute property
-element.innerHTML
-element.innerText
-element.textContent
- -->
+    <!--                Dom
 
 
+    const element = document.getElementById("idname")
+    const element = document.getElementsByClassName("classname")
+    const element = document.getElementsByTagName("Tagname")
+    const element = document.querySelector(".class/#id/tagname")
+    const element = document.querySelectorAll(".class/#id/tagname")
+
+    element.tagname -- it will return  the tagname
+    element.innerText -- it will return the inner text of the element. it will not show the text of inner tage whose hidden property is true
+    element.innerHTML -- it will return all the inner HTML of the element
+    element.textContent -- show the text even for the hidden tag
+
+    element.setAttributes("key","value")
+    element.getAttributes("attributesname")
+    element.style.(all the style)
+
+    element.children -- accessing the children of the element.
+    element.children[2]  -- if multiple children exsist.
+    element.firstElementChild -- it gives the first child element.
+    element.lastElementChild -- it give us the last element child.
+    element.parentElement -- gives the parent of the element.
+    element.nextElementSibling  -- gives the next sibling element of the selected element.
+    element.childNodes -- it will give all the nodes linebreak,comment, tag all are count as the node
+
+
+    creating element and inserting into other one
+
+    const div = document.createElement('div')  -- it will create the div tag
+    div.innerHTML -- set the inner html inside the div
+    div.setAttributes("key","value")
+    append(), prepend(), after(), before() is used to insert the node inside the selected node.
+    
+
+    -- below method of inserting the node inside the selected node is optimised becuse in this case js engine will not traverse the complete dom
+    again.document.createTextNode() this method is better then the document.innerText = ""
+    
+    const h1 = document.createElement('h1')
+    h1.appendChild(document.createTextNode("mera dimak stronge hai"))
+    document.querySelector(".just").append(h1)
+
+
+    -->
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DOM Manipulation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Practice</title>
 </head>
-<body style="background-color: black; color: whitesmoke;">
-     <!-- <div class="firstdiv">
-        <h1 id = "f1" class="classf1">This is the first heading </h1>
-        <h2 id = "f2" class="classf2"> This is the second heading</h2>
-        <h3 id = "f3">This is the third heading</h3>
-        <ul class="classul">
-            <li id = 'Manago' class="classManago">Manago <sapn style="display: none">span inside the mango</sapn> </li>
-            <li id = 'Banana' class="classBanana">Banana</li>
-            <li id = 'Apple' class="classApple">Apple</li>
-            <li id = 'Orange' class= "classOrange">Orange</li>
+<body style="background: #191414; color: white;">
+    <div class="first" id="firstid" >
+        <div class="innerfirst" id="innerid">
+            <h1>This is heading1</h1>
+        </div>
+        <div class="innsersecond" id="innerid">
+            <h1>This is heading2</h1>
+        </div>
+        <div class="innerthird" id="innerid">
+            <h1>This is heading3</h1>
+        </div>
+        <ul class="days">
+            <li>Monday</li>
+            <li>Tuesday</li>
+            <li>Wednesday</li>
+            <li>Thursday</li>
+            <li>Friday</li>
         </ul>
-     </div> -->
-
-     <div class="parent">
-        <div class="day">Monday<span style="display: none;">Hello monday</span></div>
-        <div class="day">Tuesaday</div>
-        <div class="day">wednesday</div>
-        <div class="day">Thursday</div>
-        <div class="day">Friday</div>
-     </div>
+        <ul class="just">
+            <h1>Hello</h1>
+        </ul>
+    </div>
 </body>
 
-    <script>
-        const element = document.querySelector('.parent');
-        console.log(element);
-        console.log(element.firstElementChild.textContent);
-    </script>
+<script>
+    // const element = document.getElementById("firstid")
+    // console.log(element);
+
+    // const e2 = document.getElementsByClassName("first")
+    // console.log(e2)
+
+    // const e3 = document.getElementsByTagName("ul")
+    // console.log(e3)
+
+    // const element = document.querySelector('.days')
+    // console.log(element.children)
+    // console.log(element.children[2].style.color = "green")
+
+    // const element = document.querySelector(".days")
+    // console.log(element.parentElement)
+    // console.log(element.nextElementSibling)
+
+    const div = document.createElement('h1')
+    div.setAttribute("class","ulh1")
+    div.innerText = "Satendra"
+    div.innerHTML = "<p>stronger</p>"
+    console.log(div)
+
+    const element = document.querySelector(".days")
+    console.log(element)
+    element.appendChild(div)
+
+    const h1 = document.createElement('h1')
+    h1.appendChild(document.createTextNode("mera dimak stronge hai"))
+    document.querySelector(".just").append(h1)
+
+   
+</script>
 </html>
-
-

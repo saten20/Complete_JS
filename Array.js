@@ -1,7 +1,7 @@
 /**           JS Array *******/
 
 // 1. it can store the value of any types. it is object in JS
-// 2. method like push() , pop(), unshift(), shift(), slice(), splice(), sort(), length(), concat() are present in the array
+// 2. method like push() , pop(), unshift(), shift(), slice(), splice(), sort(), length, concat() are present in the array
 // 3. To  concat the multiple array spread operator (...arr1, ...arr2, ...arr3) is used
 
 
