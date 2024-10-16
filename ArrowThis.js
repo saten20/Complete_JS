@@ -24,7 +24,7 @@
 /*******************                   Arrow Function in Js               **************/
 
 // 1. The arrow function is defind as ()=>{ //function code }
-// 2. if we have only one line in the arrow function then there is no need to specify the return keyword and use () instead of {}.
+// 2. if we have only one line in the arrow function then there is no need to specify the return keyword and use () instead of {} i.e ()=>().
 
 
 

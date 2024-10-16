@@ -5,7 +5,7 @@
 // 3. As a result data is consistent.
 // 4. IIFE  defind as ()() --> the first block contain the function defination and second is to call the function immediately
 
-// 1. when we use two iife we have to use the semicolon after the first iife to explicitely tell the js that  this function is ended here. if we not use 
+// 1. when we use two iife we have to use the semicolon after the first iife to explicitely tell the js engine that  this function is ended here. if we not use 
 //   semicolon then js engine will confused where this statmenet is ended.
 
 

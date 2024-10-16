@@ -1,11 +1,11 @@
 /***********          object creation using the object literals i.e {}       *********/
 
 // 1. object store the value as key value i.e {name: "satendra"}.
-// 2. JS engine take the value as the string i.e "name " internally
+// 2. JS engine take the key as the string i.e "name " internally
 // 3. Object.freeze(userDetails) this will freeze the object and no more changes is applicable on the userDetails object
-// 4. we can use the Symbol as the key also in the object  (const key = Symbol("firstkey") --> {[key] :"satendra"})
+// 4. we can use the Symbol as the key also in the object  (const mykey = Symbol("firstkey") --> {[mykey] :"satendra"})
 // 5. The only way to print the sumbol is console.log(accountDetails[mykey]);
-// 6. object can be access by using (obj.property) or (obj["property"])
+// 6. object can be access by using (obj.key) or (obj["key"])
 
 
 
@@ -30,6 +30,7 @@
 
 
 // const mykey = Symbol("keyone");        // using the symbol as a key
+
 // const accountDetails = {
 //     username : "rahul",
 //     [mykey] : "rahul@sbi"            

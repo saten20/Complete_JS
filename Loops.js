@@ -4,6 +4,8 @@
 // 2. iterable are arr, string , map
 // 3. Object are not iterable using for of loop
 // 4. map can be iterate by using the for of loop 
+// 5. when we iterate in the aray it give us the value of the array 
+
 
 
 
@@ -16,7 +18,7 @@
 
 
 
-// const userDetails = {
+// const userDetails = {                 // we can not iterate into object using for of loop
 //     username: "satendra",
 //     email: "satendrayadav@gmail.com"
 // }
@@ -25,7 +27,8 @@
 //     console.log(it);
 // }
 
-// const mp = new Map();
+
+// const mp = new Map();              // This is possible
 // mp.set(1, "satendra");
 // mp.set(2, "virendra");
 // mp.set(3, "yadav");
@@ -53,6 +56,7 @@
 // 1. for in loop --> for(const it in arr) 
 // 2. we can not iterate in map using for in loop
 // 3. object is easy iterable using the for in loop  --> for(const key in obj){obj[key]}
+// 4. when we iterate in array it give us the index of the array.
 
 
 
@@ -127,8 +131,9 @@
 /********************   filter *************/
 
 // 1. it return the value based on the conditon, it is predefind method of the array
-// 2. const val = filter( () => { })
+// 2. const val = arr.filter( () => { })
 // 3. it take three parameter (value , index, completeArray)
+
 
 // const arr = new Array(1, 2, 3, 4, 5,6,7,8, 9, 19);
 
@@ -229,7 +234,7 @@
 
 // 1. reduce( (acc, curr) => {return acc + curr}, intialval) 
 // 2. it takes two paramter first the accumator in which all the values accumulate and second the curr val. initially accumaltor take the initial val
-// 3. This can be accheive by using other forloop's also
+// 3. This can be acheive by using other forloop's also
 // 4. currval can be the item of the array i.e iterator
 
 
@@ -271,3 +276,5 @@
 // }, 0);
 
 // console.log(totalAmount);
+
+

@@ -1,11 +1,26 @@
+<!-- 
+// 1. This will give the single element.
+const element  = document.getElementById('')
+const element  = document.getElementsByClasName('')
+const element  = document.getElementsByName('')
+const element  = document.querySelector('')
+const element  = document.querySelectAll('')
+
+attribute property
+element.innerHTML
+element.innerText
+element.textContent
+ -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>DOM Manipulation</title>
 </head>
-<body>
-     <div class="firstdiv">
+<body style="background-color: black; color: whitesmoke;">
+     <!-- <div class="firstdiv">
         <h1 id = "f1" class="classf1">This is the first heading </h1>
         <h2 id = "f2" class="classf2"> This is the second heading</h2>
         <h3 id = "f3">This is the third heading</h3>
@@ -15,7 +30,22 @@
             <li id = 'Apple' class="classApple">Apple</li>
             <li id = 'Orange' class= "classOrange">Orange</li>
         </ul>
+     </div> -->
+
+     <div class="parent">
+        <div class="day">Monday<span style="display: none;">Hello monday</span></div>
+        <div class="day">Tuesaday</div>
+        <div class="day">wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
      </div>
-    
 </body>
+
+    <script>
+        const element = document.querySelector('.parent');
+        console.log(element);
+        console.log(element.firstElementChild.textContent);
+    </script>
 </html>
+
+
