@@ -37,7 +37,7 @@ function resetgame(){
         count.innerHTML = 10
         prev.innerHTML = ""
         document.querySelector(".ip1").value = ""
-    }, 500)
+    }, 2000)
 }
 
 
