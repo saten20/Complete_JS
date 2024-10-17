@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <style>
+        body{
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        input{
+            height: 50px;
+            width: 150px;
+            border-radius: 30px;
+            font-size: large;
+            align-items: center;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <h1>Guess the Random number between 1 and 100</h1>
+    <h3>You have Total <b>10</b> Chances</h3>
+
+    <form style="display: flex; flex-direction: column; margin-top: 50px;" class="form">
+        <label style="font-size: large;">
+            Enter the Number:
+            <input type="number" class="ip1">
+        </label>
+        <button style="margin-top: 40px; background-color: green; height: 40px; width: 300px; border-radius: 50px;">
+            Generate
+        </button>
+    </form>
+
+    <div style="margin-top: 50px;">
+        <p1 style="font-size: large;" >Prvious Generated Numbers:<span class="prev"> </span> </p1>
+    </div>
+    <div style="margin-top: 30px;">
+        <p1 style="font-size: large;">Remaining Chances:
+            <span class="count"> 10 </span> </p1>
+    </div>
+
+    <div style="margin-top: 60px; font-size: xx-large; color: green; font-style: italic; font-weight: 300;" class="win">
+        
+    </div>
+</body>
+<script src="random.js">
+
+</script>
+</html>
