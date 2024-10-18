@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Async Code</title>
+</head>
+<body style="background-color: black; color: white;">
+    <h1 id="heading">i'm always Positive</h1>
+    <button id="btn1">stop</button>
+    <button id="btn2">Start</button>
+</body>
+<script>
+    // setTimeout(()=>{
+    //     console.log("Hii Bro")
+    // }, 3000)
+
+    // const changeText = ()=>{
+    //     document.querySelector("#heading").innerHTML = "Hard Work will pay"
+    // }
+    // const timeout = setTimeout(changeText, 3000)
+
+    // document.querySelector("#btn").addEventListener('click',()=>{
+    //         clearTimeout(timeout)
+    //         console.log("button clicked")
+    // })
+
+    const start = document.getElementById("btn2")
+    start.addEventListener('click', ()=>{
+    function message(){
+        console.log("Positive Mindset")
+    }
+    const hold = setInterval(message, 1000);
+    document.getElementById("btn1").addEventListener('click',()=>{
+        clearInterval(hold)
+    })
+    })
+    
+    
+</script>
+</html>

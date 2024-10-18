@@ -1,4 +1,5 @@
 /************* Events is JS ***************/
+// JS is synchronous , single threaded language.
 
 // There are three way to implement the event.
 // Inline event --> we can directly add the event in tag. This is the worst pratice
@@ -14,11 +15,11 @@
 
 //************************Event propagation************************
 
-// Bubbling phase(false) -- if third parameter is false(default) (top to down)
+// Bubbling phase(false) -- if third parameter is false(default) (bottom to top)
 // In this phase event propagate from the root to document to html then target. once target event executed then from target to root other will start 
 // execution.first target event will execute then their parent event will execute.
 
-// Capturing phase(true) -- if third parameter is true(down to top)
+// Capturing phase(true) -- if third parameter is true(top to down)
 // In this phase from root to target first parent event executed then the targeted event executed. it flow from root to target event.
 // e.stopPropgation() method will stop the propagation of the event.
 
