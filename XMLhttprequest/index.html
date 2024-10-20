@@ -1,0 +1,58 @@
+<!-- 
+
+The states of an XMLHttpRequest object are:
+
+    UNSENT(0): The initial state, where the XMLHttpRequest client has been created but the open() method has not been called
+    OPENED(1): The open() method has been called
+    HEADERS_RECEIVED(2): The response headers have been received after the send() method has been called
+    LOADING(3): The response is being received, and state 3 repeats every time a data packet is received
+    DONE(4): The request is complete
+
+    steps to do the XMLHttpRequest
+
+    step1 - create the XMLHttpRequest instance
+            const xhr = new  XMLHttpRequest();
+    step2 - call the open method which will take two argument first type of request and second location
+            xhr.open('GET', url)
+    step 3 - perform the operation on onreadystatechange
+            xhr.onreadystatechange = ()=>{}
+            xhr.readyState will give us the integer value that represent the ready state
+
+            this.responseText will give us the response in the string formate that we have to convert it into json using
+            JSON.parse(xhr.responseText)
+
+    step 4 - xhr.send()
+    
+    javascript is wrapper on C++. i.e js is written on c++.
+
+    
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Request</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    
+</body>
+<script>
+     const requestUrl = 'https://api.github.com/users/saten20';
+     const xhr = new XMLHttpRequest();
+     xhr.open('GET', requestUrl);
+     xhr.onreadystatechange = ()=>{
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(xhr.responseText)
+            console.log(data)
+            const url = data.avatar_url
+            console.log(url)
+        }
+     }
+     xhr.send()
+  
+</script>
+</html>
