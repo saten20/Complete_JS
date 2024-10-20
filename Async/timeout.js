@@ -3,6 +3,7 @@
 // setTimeout will take two parameter first call back function or function reference and second is time.
 // setTimeout will execute after the specified time.
 // clearTimeout() will take the one parameter that is reference of the setTimeout function whom we wont to stop.
+// setTimeout() and setInterval() both are the async method of js.
 
 //*********************** setInterval(()=>(), time, "argument") and clearInterval() *************
 

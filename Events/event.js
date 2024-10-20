@@ -3,10 +3,10 @@
 
 // There are three way to implement the event.
 // Inline event --> we can directly add the event in tag. This is the worst pratice
-// we can add the evenet after fetching the element from the script i.e 
+// we can add the event after fetching the element from the script i.e 
 // document.getElementById("name").onclick(()=>{ }). This is also not the good practice.
 
-// we can add the event using the addEventListener() method. This is the best practice of adding the event listner
+// we can add the event using the addEventListener() method. This is the best practice of adding the event listener
 // element.addEventListener('eventName', (e)=>{ }, false).it takes three parameter
 // first parameter is the name of the listener which is pass in the single quote.
 // second is callback function.
