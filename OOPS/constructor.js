@@ -1,5 +1,5 @@
 // this represent the current context.
-// when we not return this inside the function it automatically return this.
+// when we not return this inside the function is automatically return this.
 // in the below example when we are using the username in the function . JS engine is not able to find out username variable, because that 
 // variable is not exsist in the function. when we use the this keyword so we are specifying that use your global space username.
 
