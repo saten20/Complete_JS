@@ -18,7 +18,8 @@
 // If you return a value from one .then() block, it is passed as the resolved value to the next .then() in the chain.
 
 // try{} catch(e){} block is used to handle the error.
-// response.json() is also take time so we have to use the (await response.json())
+// response.json() is also take time so we have to use the (await response.json()).since response always comes in string form so 
+// we have to convert it into json form using .json.
 // fetch() method also return the promise that can be handle using async await or by using then() catch() block.
 
 

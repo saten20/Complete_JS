@@ -9,7 +9,7 @@
 
 // setInterval will take the three argument first the callback function . we can also pass the reference of the function.
 // second the time and third is argument which we can pass to the function when we use the function reference.
-// clearInterval() function will take the reference of the setInterval whom we want ot clear.
+// clearInterval() function will take the reference of the setInterval whom we want to clear.
 
 setTimeout(()=>{
     console.log("i'm timeout")
