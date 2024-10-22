@@ -1,0 +1,37 @@
+ <!-- 
+  bind(this) is used when we wont to give our own context as well as calling function own context.
+  So bind() will give the this of anyother function without distrubing the calling function this
+  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Clicked me</button>
+    
+</body>
+<script>
+    class React{
+        constructor(username, server){
+            this.username = username
+            this.server = server
+            
+            document.querySelector('button')
+            .addEventListener('click', this.handleClicked.bind(this))
+       
+        }
+
+        handleClicked(){
+            console.log("clicked")
+            console.log(this)
+            console.log(this.server)
+        }
+    }
+    const app = new React("satendra", "https://localhost:3000")
+</script>
+</html>

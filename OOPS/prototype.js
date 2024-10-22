@@ -80,10 +80,18 @@
 // Created the function that tell the true length with the help of prototype.
 
 
-const username = "Satendra     "
-String.prototype.truelength = function(){
-    console.log(`${this}`)
-    console.log(`true length is  ${this.trim().length}`)
-}
-username.truelength()
-"rahul          ".truelength();
+// const username = "Satendra     "
+// String.prototype.truelength = function(){
+//     console.log(`${this}`)
+//     console.log(`true length is  ${this.trim().length}`)
+// }
+// username.truelength()
+// "rahul          ".truelength();
+
+
+
+// Suppose we have function inside the function.
+// so each we get the call stack memroy.
+// since they have different call stack so the inner function will have the access of global execution context.
+// so when global context point to the window at that time this have the access of window.
+// but when global context point to node at that time this have {} object reference.
