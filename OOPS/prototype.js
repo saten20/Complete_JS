@@ -8,7 +8,7 @@
 // The prototype object acts as a template from which the object can inherit properties or methods.
 
 // function in js is object as well as function also. in below code we are accessing the function as obj.key this says that it behave as 
-// the function also. This is happend due to prototypal inheritance.
+// the object also. This is happend due to prototypal inheritance.
 
 // new will create the empty object which have it's own this.
 // new object will inherit the userDetails.prototype which have method like increment and printme.
@@ -91,7 +91,7 @@
 
 
 // Suppose we have function inside the function.
-// so each we get the call stack memroy.
+// so each function will have there own call stack memory.
 // since they have different call stack so the inner function will have the access of global execution context.
 // so when global context point to the window at that time this have the access of window.
 // but when global context point to node at that time this have {} object reference.

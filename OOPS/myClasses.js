@@ -1,6 +1,6 @@
 // class in js
 // In class we don't have to use the function to defind the function. This can be done by just writting the name of the function.
-// class befind the seen use the prototypal inheritance.
+// class uses the prototypal inheritance concepts.
 
 
 
@@ -57,7 +57,7 @@
 // To inherit one class into other extends keyword is used.
 // as we know call() pass  our context to other function, so here this is done by the super() keyword.
 // static keyword is used to make the method private. 
-// static  method is not accessable for the user who create object of our class , also not who inherit our class.
+// static  method is not accessable for the user who create object of our class , also for the user who inherit our class.
 
 class user{
     constructor(username){

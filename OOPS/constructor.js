@@ -23,7 +23,7 @@ users.entry()
 
 // new keyword will convert the normal function call into constructor.
 // step 1 - first new keyword will create the empty object.
-// step 2 - that empty object has it's own this.
+// step 2 - that empty object has it's own this.prototype of the function get inherit by the empty created object which contain all the functions.
 // step 3 - all the value pass inside the function call which is construtor now will be store in that empty created object by new.
 // step 4 - and this object will be return by the new keyword to any other variable.
 // so new userDetails() is constructor now.
