@@ -13,6 +13,7 @@
 // console.log(typeof value);
 
 //**********************************  unexpected DATA TYPE **************************/
+// Array , function, null is an object
 
 let arr = ["satendra", 1, "rahul", 134];
 console.log(typeof arr);
