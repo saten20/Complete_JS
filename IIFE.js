@@ -5,8 +5,8 @@
 // 3. As a result data is consistent.
 // 4. IIFE  defind as (function body)() --> the first block contain the function defination and second is to call the function immediately
 
-// 1. when we use two iife we have to use the semicolon after the first iife to explicitely tell the js engine that  this function is ended here. if we not use 
-//   semicolon then js engine will confused where this statmenet is ended.
+// 1. when we use two iife we have to use the semicolon after the first iife to explicitely tell the js engine that  this function is ended here. 
+// if we not use semicolon then js engine will confused where this statmenet is ended.
 
 
 
@@ -16,7 +16,7 @@
     console.log(`score is ${score}`);
 })();
 
-//console.log(score);    // all the var
+console.log(score);    // we can not access the score variable of the above iife. 
 
 ((name)=>{
     console.log(`Hello ${name} this is the second IIFE`)
