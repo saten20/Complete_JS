@@ -1,5 +1,5 @@
 // why we can not change the value of the math.pi
-// so we can get the access of all the property give to the key "PI" by using the Object method called getOwnPropertyDescriptor(Math ,"PI")
+// so we can get the access of all the property given to the key "PI" by using the Object method called getOwnPropertyDescriptor(Math ,"PI")
 // so it will return the object inside that there are some property related to PI that are mark as true using c++.
 // we can not change the value of those property like   writable: false, enumerable: false, configurable: false 
 // That's why the value of the PI can not be change.

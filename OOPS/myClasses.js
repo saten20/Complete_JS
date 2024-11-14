@@ -72,7 +72,7 @@ class user{
     }
 }
 
-class nextflix extends user{
+class netflix extends user{
     constructor(username, email ,pass){
         super(username)
         this.email = email
@@ -85,6 +85,6 @@ class nextflix extends user{
 
 }
 
-const newuser = new nextflix("saten", "saten@gmail.com", "4244")
+const newuser = new netflix("saten", "saten@gmail.com", "4244")
 console.log(newuser.showuser())
 console.log(newuser.extraDetails())
