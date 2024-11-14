@@ -1,4 +1,4 @@
-// let val = "332fws";
+// let val = 2355;
 // console.log(typeof val);
 // let convert_string  = String(val);
 // console.log(typeof convert_string);
@@ -15,22 +15,22 @@
 //**********************************  unexpected DATA TYPE **************************/
 // Array , function, null is an object
 
-let arr = ["satendra", 1, "rahul", 134];
-console.log(typeof arr);
+// let arr = ["satendra", 1, "rahul", 134];
+// console.log(typeof arr);
 
-const value = function(){
-    console.log("Hello from the other side");
-}
+// const value = function(){
+//     console.log("Hello from the other side");
+// }
 
-console.log(typeof value)
+// console.log(typeof value)
 
-const obj = {
-    rollno: 133,
-    sname:"Tushar",
-    add:"Mumbai"
-}
+// const obj = {
+//     rollno: 133,
+//     sname:"Tushar",
+//     add:"Mumbai"
+// }
 
-console.log(typeof obj);
+// console.log(typeof obj);
 
-let val = null;
-console.log(typeof val);
+// let val = null;
+// console.log(typeof val);
