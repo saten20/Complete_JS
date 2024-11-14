@@ -5,7 +5,7 @@
 // 3. To  concat the multiple array spread operator (...arr1, ...arr2, ...arr3) is used
 
 
- const arr = new Array(1, 4, 2,"Satendra", 4, 3 ,2,"hitesh",42);
+//  const arr = new Array(1, 4, 2,"Satendra", 4, 3 ,2,"hitesh",42);
 // console.log(typeof arr);
 
 // console.log(arr.push(100));  // return the size and push the value in the back
@@ -24,9 +24,9 @@
 // console.log(arr)
 
 
-const arr2 = ['x','y','z'];   //join method
-const val = arr.join(arr2);
-console.log(val);
+// const arr2 = ['x','y','z'];   //join method
+// const val = arr.join(arr2);
+// console.log(val);
 
 // const newarr = new Array(4, 6, 8, 10, 12, 14, 16);
 // console.log(newarr.slice(2, 4));      // it will slice idx1 to idx2 excluding idx2 and it will not change the original  array

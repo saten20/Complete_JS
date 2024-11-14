@@ -87,16 +87,16 @@
 // 2. This is usefull while we do the API call
 
 
-const userDetails = {
-    userid : 123,
-    username : "saten123", 
-    mail :"satenyadav@gmail.com",
-    isLoggedIn : false
-}
+// const userDetails = {
+//     userid : 123,
+//     username : "saten123", 
+//     mail :"satenyadav@gmail.com",
+//     isLoggedIn : false
+// }
 
-const {userid: id, username : name , mail, isLoggedIn:status } = userDetails;
-console.log(id);
-console.log(name);
-console.log(mail);
-console.log(status);
+// const {userid: id, username : name , mail, isLoggedIn:status } = userDetails;
+// console.log(id);
+// console.log(name);
+// console.log(mail);
+// console.log(status);
 

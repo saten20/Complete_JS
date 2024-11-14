@@ -16,7 +16,7 @@
     console.log(`score is ${score}`);
 })();
 
-console.log(score);    // we can not access the score variable of the above iife. 
+// console.log(score);    // we can not access the score variable of the above iife. 
 
 ((name)=>{
     console.log(`Hello ${name} this is the second IIFE`)

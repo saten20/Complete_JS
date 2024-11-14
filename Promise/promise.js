@@ -94,12 +94,12 @@
 
 // const promise = new Promise((resolve, reject)=>{
 //     setTimeout(()=>{
-//         flag = false;
+//         flag = true;
 //         if(flag)
 //               resolve("your promise is resolved")
 //         else
 //               reject("your promise is rejected")
-//     }, 1000)
+//     }, 2000)
 // })
 
 // async function callme(){
@@ -112,6 +112,7 @@
 //    }
 // }
 // callme()
+// console.log("Hello")
 
 
 

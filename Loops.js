@@ -91,11 +91,6 @@
 
 
 
-
-
-
-
-
 /********        forEach    **********/
 
 
@@ -197,7 +192,7 @@
 // 2. map( () => { }) , it also take the three arguments (item , index, completeArray)
 // 3. map is used when we want to modify the data. it return the data
 // 3. we can perform the chaining also in the map , inbetween we can use the filter also
-// 4. when we apply the filter from left map return the value to the right one and at the end last map return the value.
+// 4. when we apply the filter, from left map return the value to the right one and at the end last map return the value.
 
 
 
@@ -242,7 +237,7 @@
 
 // const val = arr.reduce( (acc, currval) =>{
 //     console.log(`acc: ${acc} currval: ${currval}`)
-//     return acc + currval
+//     return acc + currvals
 // }, 7)
 
 // console.log(val);

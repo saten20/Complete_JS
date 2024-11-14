@@ -4,12 +4,14 @@
 // setTimeout will execute after the specified time.
 // clearTimeout() will take the one parameter that is reference of the setTimeout function whom we wont to stop.
 // setTimeout() and setInterval() both are the async method of js.
+// setTimeout() will execute only once.
 
 //*********************** setInterval(()=>(), time, "argument") and clearInterval() *************
 
 // setInterval will take the three argument first the callback function . we can also pass the reference of the function.
 // second the time and third is argument which we can pass to the function when we use the function reference.
 // clearInterval() function will take the reference of the setInterval whom we want to clear.
+// setinterval will keep on executing after each mention time.
 
 setTimeout(()=>{
     console.log("i'm timeout")
