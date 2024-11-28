@@ -9,10 +9,11 @@
 // 2. if we are not sure that how many varible does the function call give to the function defination then instead of using the paramter in the function call
 //    we can use the Rest operator (...num). This operator can take any number of input from the user. This is same as the spred operator of array and object
 
-// 1. Hoisting in js function
-// 2. when we hold the value of function in variable at that time statement sequnce matter but when we are not holding the return value of the function at that 
+//  Hoisting in js function
+
+// 1. when we hold the value of function in variable at that time statement sequnce matter but when we are not holding the return value of the function at that 
 //    time you can call the function before it's defination also this is called as hoisting in JS
-// 3. In hosisting js engine shift the fucntion to the top of the code.
+// 2. In hosisting js engine shift the fucntion to the top of the code.
 
 
 
