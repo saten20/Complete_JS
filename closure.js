@@ -1,8 +1,24 @@
-// Lexical scopping
+// **********************Lexical scopping*********************
 
+// Lexical scope = local memory + reference to parent's lexical scope.
 // Inner function have the access of the outer function(parent function) variable.This is called as lexical scopping.
-// But two inner function can not share the variable between themself. and outer function also can not share the variable.
-// inner function first search the username in it's scope. now it will start serching in the scope where it is declare.
+// But two inner function can not share the variable between themself.
+// Outer function or global scope can not access the variable of inner  because inner function's execution context is not created yet.
+
+// Inner function first search the username in it's execution context . if it is not found then it will start seraching in it's parent lexical
+// execution context  it will keep on searching till it reaches the Global execution context of the running program.
+// This is called as scope chaining.
+// global Execution context parent points to it' parent lexical scope which is null.
+
+
+// function a(){
+//     c();
+//     function c(){
+//         console.log(b)
+//     }
+// }
+//  let b = 100;
+//  a();
 
 
 // function outer(){
