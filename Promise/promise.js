@@ -1,6 +1,6 @@
 //***************** Promise ************//
 
-// Promise is eventually completing object.
+// promise is an object representing the eventul completion or failiure of the asynchronous operation.
 // when promise is create it is in pending state , if completed then resolved state if not then rejected state.
 // first we have to create the promise then we will consume the promise.
 // The syntex of the promise creation , const promise = new Promise(()=>{//code}) 
@@ -16,6 +16,7 @@
 // if a .then() block returns a value, that value can be passed to the next .then() block in the chain.
 // Each .then() block returns a new promise, allowing you to chain multiple .then() calls.
 // If you return a value from one .then() block, it is passed as the resolved value to the next .then() in the chain.
+// we can put the catch() block in between the chain also, so if there are then() block after the catch block then it will execute always.
 
 // try{} catch(e){} block is used to handle the error.
 // response.json() is also take time so we have to use the (await response.json()).since response always comes in string form so 
@@ -146,3 +147,53 @@
 // .catch((e)=>{
 //     console.log(e)
 // })
+
+// const cart = ["shoe", "shirt", "pant"] 
+// const promise = createOrder(cart)
+
+// promise
+// .then((orderid) =>{
+//     return makepayment(orderid)
+// })
+// .then((paymeninfo) =>{
+//     console.log(paymeninfo)
+//     return showorder(paymeninfo)
+// })
+// .then(function(amount){
+//     console.log(amount)
+//     return updatewallet(amount)
+// })
+// .then(function(totalAmount){
+//     console.log(totalAmount)
+// })
+// .catch((err)=>{
+//     console.log("Error in the order ")
+// })
+
+// function createOrder(cart){
+//     const orderid = "84252"
+//     return new Promise((resolve, reject)=>{
+//         resolve(orderid)
+//     })
+// }
+
+// function makepayment(orderid){
+//     const p  = new Promise((resolve, reject) =>{
+//         resolve("payment done successfully")
+//     })
+//     return p
+// }
+
+// function showorder(paymeninfo){
+//     const amount = "12,340/-"
+//     return new Promise(function(resolve, reject){
+//         resolve(amount)
+//     })
+// }
+
+// function updatewallet(amount){
+//     const val = 12000 - 2000
+//     return new Promise((resolve, reject)=>{
+//         resolve(val);
+//     })
+// }

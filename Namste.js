@@ -160,4 +160,75 @@
 // This is called as blocking the main thread.
 
 
-//***************************Event Loop ********************
+//*************************** call back hell / pyramid of doom ********************
+
+// callback is a way to handling the async operation in JS.we pass the callback function in settimeout and it will execute as we want.
+// when we pass one callback inside other callback  and so on then it is called as callback hell.
+// Inversion of control -- we pass the callback function to third party api and we trust that this api will execute our callback
+// but there may be changes that , api call the callback twice, or not call the callback.so we loose the control on our code
+// This is called as inversion of control that is losoing the control on our code.
+
+// const cart = ["shoe", "pant", "shirt"]
+// AudioParam.createOrder(cart, function(){
+//     api.proceedPayment(function(){
+//         api.genereateBill(function(){
+//             api.updatewalllet(function(){
+
+//             })
+//         })
+//     })
+// })
+
+
+
+
+//****************************** Promises ****************************
+
+// A Promise is an  object representing the eventual completion or failure of an asynchronous operation.
+// Initially promise is in pending state then it converted to either fulfilled or rejected state.
+// With the help of the promise we resolve the "Inversion of control" problem, because if promise is executed then only we are doing the api call.
+// so we have full control on our callback function which was not there in the basic callback.
+// "Pomise Chaining " -- promise chaining is the soluation of the callback hell. 
+// In the promise chaining it is important to return from one then() block to it's next .then()
+// In Promise chaining code will grow vertically and in meaningfull manner
+// "Promise" -- promise is the solution of the Inversion of control problem i.e loosing the control on our code.
+
+// "Promise.all([])"
+// it is used when we want to execute the multiple promise at the same time.suppose we want to fetch data of 10 userid from server then we will use it.
+// Promise.all() will execute successfully if all the promise resolve(). it will wait for all the promise to resolve.
+// if any one of the promise is rejected then it will direct throw the error at that point of time. it will not wait to reset of the promise.
+// The error is same as that of the return by the failed promise.
+
+// Promise.allSettled([])
+// it is same as Pomise.all() the only difference is that it will wait till all the promise get executed.it will give the same size result
+// array in which all the fulfilled and rejejcted promise value present.
+
+const p = Promise.all([f1, f2, f3]);
+p.then((data)=>{
+    console.log(data)
+})
+.catch((e)=>{
+    console.log(e)
+})
+
+function f1(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(function(){
+            resolve("First promise")
+        }, 3000)
+    })
+}
+function f2(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(function(){
+            resolve("First promise")
+        }, 1000)
+    })
+}
+function f3(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(function(){
+            resolve("First promise")
+        }, 5000)
+    })
+}
