@@ -164,7 +164,7 @@
 
 // callback is a way to handling the async operation in JS.we pass the callback function in settimeout and it will execute as we want.
 // when we pass one callback inside other callback  and so on then it is called as callback hell.
-// Inversion of control -- we pass the callback function to third party api and we trust that this api will execute our callback
+// "Inversion of control" -- we pass the callback function to third party api and we trust that this api will execute our callback
 // but there may be changes that , api call the callback twice, or not call the callback.so we loose the control on our code
 // This is called as inversion of control that is losoing the control on our code.
 
@@ -196,39 +196,143 @@
 // "Promise.all([])"
 // it is used when we want to execute the multiple promise at the same time.suppose we want to fetch data of 10 userid from server then we will use it.
 // Promise.all() will execute successfully if all the promise resolve(). it will wait for all the promise to resolve.
-// if any one of the promise is rejected then it will direct throw the error at that point of time. it will not wait to reset of the promise.
-// The error is same as that of the return by the failed promise.
+// if any one of the promise is rejected then it will direct throw the error at that point of time. it will not wait for reset of the promise.
+// it throw the same error as that of the return by the failed promise.
 
-// Promise.allSettled([])
+// "Promise.allSettled([])"
 // it is same as Pomise.all() the only difference is that it will wait till all the promise get executed.it will give the same size result
 // array in which all the fulfilled and rejejcted promise value present.
 
-const p = Promise.all([f1, f2, f3]);
-p.then((data)=>{
-    console.log(data)
-})
-.catch((e)=>{
-    console.log(e)
-})
+// Promise.race([])
+// it will wait till the first promise is settled(that is either rejected or resolve).
+// if the first executing promise is resolve then it will return that value.if rejected then it will throw the error and not wait for other 
+// promise to settled.
 
-function f1(){
-    return new Promise((resolve, reject)=>{
-        setTimeout(function(){
-            resolve("First promise")
-        }, 3000)
-    })
+// Promise.any([])
+// Promise.any will wait for the first resolve promise. The first promise which resolve it will return the result of that promise.
+// if none of the promise get resolve then it will return an array of aggrigated error. array of all the error given by the promise.
+// There is an array of error which contain all the error.
+
+
+// const p1 = new Promise((resolve, reject) =>{
+//     // setTimeout(()=>{
+//     //     resolve("Promise p1 success")
+//     // }, 3000)
+//     setTimeout(()=>{
+//         reject("Promise p1 reject")
+//     }, 3000)
+// })
+// const p2 = new Promise((resolve, reject) =>{
+//     // setTimeout(()=>{
+//     //     resolve("Promise p2 success")
+//     // }, 1000)
+//     setTimeout(()=>{
+//         reject("Promise p2 reject")
+//     }, 1000)
+// })
+// const p3 = new Promise((resolve, reject) =>{
+//     setTimeout(()=>{
+//         resolve("Promise p3 success")
+//     }, 2000)
+//     // setTimeout(()=>{
+//     //     reject("Promise p3 reject")
+//     // }, 2000)
+// })
+
+// // const p = Promise.all([p1, p2, p3]);
+// // const p = Promise.allSettled([p1, p2, p3])
+// // const p = Promise.race([p1, p2, p3])
+// const p = Promise.any([p1, p2, p3])
+// p.then((data)=>{
+//     console.log(data)
+// })
+// .catch((e)=>{
+//     console.error(e)
+// })
+
+
+
+
+//******************************async await**********************
+
+// we can handle the promise with the help of the async await function also.
+// async keyword is used to make the function async. async function always return the promise.
+// if it is not returning the promise if it is returning the normal value then it will wrap it into promise and then return it.
+// but if it is already returning the promise then it do nothing, it will return that promise as it is.
+// await is used inside the async function only. we can not used the await outside the async function.
+// await will stop the execution of the code where the await is written.below line is not executed until the await is executed.
+// But JS engine not wait there. JS engin suspend the function from the call stack and move that function into to the event queue.
+// As a result callstack is not blocked, it will execute the other function.
+// When the time is completed JS engine take that function from the event queue and put it into the callstack and execute it.
+// And then the  line below the await will execute. Again if there is await then JS suspend that function from callstack and put it into event queue.
+// As a result main callstack never blocked.
+// what if event queue function is not executed or some error arises , then to handle that we used try catch block.
+
+// we used the async await to do the asynchronous operation. We used it in fetech() method. fetch will return the Promise.
+// That promise may be resolved or rejected.
+
+
+// But if we handle the promise with then() catch() block then below the then() catch() block line is executed whether promise is resolve
+// immedalty or after some time.
+// But async await in background uses the then() catch() block only, async await is just the alternate way of handling the promise.
+
+
+
+
+
+// const p1 = new Promise((resolve, reject) =>{
+//     setTimeout(()=>{
+//         resolve("Promise is resolved")
+//     }, 10000)
+// })
+
+// const p2 = new Promise((resolve, reject) =>{
+//     setTimeout(()=>{
+//         resolve("Promise is resolved")
+//     }, 5000)
+// })
+
+// // function handlepromise(){
+// //     p.then((data)=>{
+// //         console.log(data)
+// //     })
+// //     .catch((err)=>{
+// //         console.log(err)
+// //     })
+// //     console.log("This is the next line")
+// // }
+// // handlepromise();
+
+// async function handlePromise(){
+//     const val1 = await p1
+//     console.log("Promise p1 executed")
+//     console.log(val1);
+
+//     const val2 = await p2
+//     console.log("Promise p2 is executed")
+//     console.log(val2)
+// }
+// handlePromise();
+
+async function handlePromise(){
+    // try{
+    //     const res = await fetch("https://github")
+    //     const data = await res.json()
+    //     console.log(data);
+
+    // }catch(error){
+    //     console.log("Error is occurs while fetching the data....")
+    //     console.log(error)
+    // }
+
+        
+        const res = await fetch("https://github")
+        const data = await res.json()
+        console.log(data);
+
+        
+    
 }
-function f2(){
-    return new Promise((resolve, reject)=>{
-        setTimeout(function(){
-            resolve("First promise")
-        }, 1000)
-    })
-}
-function f3(){
-    return new Promise((resolve, reject)=>{
-        setTimeout(function(){
-            resolve("First promise")
-        }, 5000)
-    })
-}
+handlePromise().catch((erro)=>{console.log("Error while fetching the data..........",erro)});
+
+
