@@ -314,25 +314,95 @@
 // }
 // handlePromise();
 
-async function handlePromise(){
-    // try{
-    //     const res = await fetch("https://github")
-    //     const data = await res.json()
-    //     console.log(data);
 
-    // }catch(error){
-    //     console.log("Error is occurs while fetching the data....")
-    //     console.log(error)
-    // }
+
+// async function handlePromise(){
+//     // try{
+//     //     const res = await fetch("https://github")
+//     //     const data = await res.json()
+//     //     console.log(data);
+
+//     // }catch(error){
+//     //     console.log("Error is occurs while fetching the data....")
+//     //     console.log(error)
+//     // }
 
         
-        const res = await fetch("https://github")
-        const data = await res.json()
-        console.log(data);
+//         const res = await fetch("https://github")
+//         const data = await res.json()
+//         console.log(data);
 
         
     
+// }
+// handlePromise().catch((erro)=>{console.log("Error while fetching the data..........",erro)});
+
+
+
+
+
+
+
+//************************************ this keyword **************************
+
+// In global space this represent the global object that is window in case of browser. this point to the global object
+// The value of this inside the function behave differently, in case of non-strict mode value of this inside the function is global object.
+// This happen due to the this substitution. But incase of strict mode it is undefind.
+
+// this inside the object represent the object.
+// The function that we defind inside the object is called as the method of that object.
+
+// "call" -- with the help of the call we can pass the our execution context(our this) to other function.
+// So other function will use our execution context rather then using it's own
+
+// this inside the arrow function represent the lexical context of, where it is defind.
+// if arrow funtion is present inside the function and function present inside the object. Then this keyword inside the arrow function will represent
+// the object because lexical scope of function is object only where arrow function is defind.
+
+
+
+
+// "use strict"
+// var m = 10
+
+// console.log(this)
+// function x(){
+//     console.log(this)
+// }
+// x()
+
+// const obj = {
+//     a:24,
+//     fname:"saten",
+//     fun:function(){
+//         console.log(this.a)
+//     }
+// }
+// obj.fun()
+
+
+// const student1 = {
+//     name:"saten",
+//     printname:function(){
+//         console.log(this.name)
+//     }
+// }
+// student1.printname();
+
+// const student2 = {
+//     name: "samay"
+// }
+// student1.printname.call(student2)
+// student1.printname();
+
+
+const obj = {
+    a:124,
+    x:function(){      // lexical scope where arrow funtion is defind is object. so this inside the arrow function represent the object.
+        const val = ()=>{
+            console.log(this)
+        }
+        val()
+    }
 }
-handlePromise().catch((erro)=>{console.log("Error while fetching the data..........",erro)});
-
-
+obj.x()
