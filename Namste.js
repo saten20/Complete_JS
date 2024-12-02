@@ -160,6 +160,8 @@
 // This is called as blocking the main thread.
 
 
+
+
 //*************************** call back hell / pyramid of doom ********************
 
 // callback is a way to handling the async operation in JS.we pass the callback function in settimeout and it will execute as we want.
@@ -355,9 +357,13 @@
 // "call" -- with the help of the call we can pass the our execution context(our this) to other function.
 // So other function will use our execution context rather then using it's own
 
+// arrow function does not have there own this, it retain the this value of lexical scope where it is defind.
 // this inside the arrow function represent the lexical context of, where it is defind.
 // if arrow funtion is present inside the function and function present inside the object. Then this keyword inside the arrow function will represent
 // the object because lexical scope of function is object only where arrow function is defind.
+
+// this inside the dom
+// this represent the tag where it is defind. if it is used inside the button tag then it will represent that button only.
 
 
 
@@ -396,13 +402,32 @@
 // student1.printname();
 
 
-const obj = {
-    a:124,
-    x:function(){      // lexical scope where arrow funtion is defind is object. so this inside the arrow function represent the object.
-        const val = ()=>{
-            console.log(this)
-        }
-        val()
-    }
-}
-obj.x()
+// const obj = {
+//     a:124,
+//     x:function(){      // lexical scope where arrow funtion is defind is object. so this inside the arrow function represent the object.
+//         const val = ()=>{
+//             console.log(this)
+//         }
+//         val()
+//     }
+// }
+// obj.x()
+
+
+
+
+//***************************Event Loop *********************************
+// There are so many fetures that are provided by the browser.storage, timer,doing network call, rendoring, server communicatio etc.
+// Js engine is present inside the browser , so what if JS engine want to access all these fatures provided by the browser.
+// so browser provide the different API likes setTimeout, fetch, dom, console, localstorage to access these feature.
+// Browser wrap all API inside the window object, and by accesing window object we can access these features.
+
+// So when ever any Asynchronous operation like setTimeout, fetch are there in the code, that functions are hand off to web API.
+// web API registor the task and that function is poped off from the call stack.When web API done with the requested task like fetching web page,
+// or setTimeout timer expire it push that callback inside the event queue(setTimeout,setInterval, dom) or microtask queue(fetch, then, catch).
+// microtask queue has higher priorites.microtask queue store the promises and mutalOberver.
+// There is event Loop which keep on checking is callstack empty and there exsist any function inside the queue, if yes then event queue
+// will pick the function from the queue and push it into the call stack. also that function is removed from the queue.
+// Event loop only push the callback from the queue once the callstack is empty.it continuosly keep on checking.
+// First microtask queue is executed and when there is no callback left then event queue callback will be executed.
+// There may be chance that event queue not get the chanace to execute there callback , so this condition is called as starvation.
