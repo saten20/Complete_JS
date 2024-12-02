@@ -416,7 +416,8 @@
 
 
 
-//***************************Event Loop *********************************
+//***************************Event Loop (power of browser) *********************************
+
 // There are so many fetures that are provided by the browser.storage, timer,doing network call, rendoring, server communicatio etc.
 // Js engine is present inside the browser , so what if JS engine want to access all these fatures provided by the browser.
 // so browser provide the different API likes setTimeout, fetch, dom, console, localstorage to access these feature.
@@ -431,3 +432,52 @@
 // Event loop only push the callback from the queue once the callstack is empty.it continuosly keep on checking.
 // First microtask queue is executed and when there is no callback left then event queue callback will be executed.
 // There may be chance that event queue not get the chanace to execute there callback , so this condition is called as starvation.
+
+
+
+//************************ JS Engine ****************************
+
+// JS environment is needed to run the JS program. JS environment contain JS engine, Web API's, queues, event loop.
+// JS is interpretor as well as compiler lanaguage.
+// "interpretor" -- Just start executing the code line by line
+// "compiler" -- First scan the code and convert it into optimised code and then start executing the code line by line.
+// JS engine pass the code into three phases 1) parsing -- break the code into token and do the syntex parsing and create the AST that is 
+// abstract syntex tree of the code.This Abstract syntex tree is then pass to the compiler.
+// 2) Compilation -- compiler do the just in time compliation that is interpretor execute the code line by line and compiler take that line and optimised it.
+// SO js support both compilation and interpretation, it  depends on the JS engine.
+// Now compile code is converted into byte and pass to the execution phase.
+// 3) Execution phase has memory heap and call stack. it also have garbage collector which uses mark and sweep algorithm  to free the memory
+// from the heap which is not in used.
+
+
+
+
+//********************************* Higher order function ************************
+// function which take other function as an argument or return the function is called as the higher order function.
+// The function as an argument is called as the callback function. Higher order function is used to make the moduler code.
+// map -- it is used to tranform the array.
+// filter -- it is used to filter the values of array based on some conditions.
+// reduce -- 
+
+
+// const radius = [4,3,9,6,5]
+// const area = function (radius){
+//     return 2 * 3.14 * radius
+// }
+
+// const calculate = function(radius, area){
+//     const output = []
+//     for(let i = 0; i < radius.length; i++){
+//         output.push(area(radius[i]))
+//     }
+//     return output
+// }
+// console.log(calculate(radius, area))
+
+// console.log(radius.map(area))
+
+// const val = radius.map((r,i, radius)=>{
+//     //console.log(r, i, radius)
+//     return 2 * 3.14 * r
+// })
+// console.log(val)

@@ -231,6 +231,8 @@
 // 2. it takes two paramter first the accumator in which all the values accumulate and second the curr val. initially accumaltor take the initial val
 // 3. This can be acheive by using other forloop's also
 // 4. currval can be the item of the array i.e iterator
+// 5. reduce function takes two argument first callback function which has two argument first accumulator and second curr value, second is the initial value
+// of the accumulator.
 
 
 // const arr = [1, 2, 3 , 4];
@@ -271,5 +273,38 @@
 // }, 0);
 
 // console.log(totalAmount);
+
+
+const user = [
+    {first: "jatin", last: "singh", age:34},
+    {first: "tushar", last: "yadav", age:26},
+    {first: "navin", last: "readdy", age:26},
+    {first: "nitya", last: "yadav", age:45}
+]
+
+const val = user.reduce(function(acc, curr){
+    if(acc[curr.age]){
+        acc[curr.age] += 1
+    }
+    else{
+        acc[curr.age] = 1
+    }
+    return acc
+},{})
+console.log(val)
+
+const val2 = user.filter((user, i, users)=>{
+    if(user.age == 26)
+        return user.first
+})
+console.log(val2)
+
+const val3 = user.reduce((acc, curr)=>{
+    if(curr.age < 40){
+        acc.push(curr.first)
+    }
+    return acc
+}, [])
+console.log(val3)
 
 
