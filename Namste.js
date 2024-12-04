@@ -44,6 +44,8 @@
 // we can access all the variable and function as window.variabelName or window.functionCall().
 // In case of chrome browser we call the global object as window but in other browser they may be different.
 // this is the keyword which also created when we run js program. this point to the window object.
+// setTimeout, Dom, fetch, localstorage, these feture are not present in JS. These feature is provided by the browser.
+// So all these api is injected in the global object.
 
 
 
@@ -152,6 +154,7 @@
 
 
 //************************ callback, main thread *****************
+
 // callback -- when we pass the function as the argument is called as callback function
 // setTimeout( ()=>{console.log("Hii")}, 1000)
 
@@ -272,8 +275,6 @@
 
 // we used the async await to do the asynchronous operation. We used it in fetech() method. fetch will return the Promise.
 // That promise may be resolved or rejected.
-
-
 // But if we handle the promise with then() catch() block then below the then() catch() block line is executed whether promise is resolve
 // immedalty or after some time.
 // But async await in background uses the then() catch() block only, async await is just the alternate way of handling the promise.
@@ -432,6 +433,7 @@
 // Event loop only push the callback from the queue once the callstack is empty.it continuosly keep on checking.
 // First microtask queue is executed and when there is no callback left then event queue callback will be executed.
 // There may be chance that event queue not get the chanace to execute there callback , so this condition is called as starvation.
+// That's why it is not guranteed that setTimeout will execute exactly when it's time is expired.
 
 
 
@@ -439,7 +441,7 @@
 
 // JS environment is needed to run the JS program. JS environment contain JS engine, Web API's, queues, event loop.
 // JS is interpretor as well as compiler lanaguage.
-// "interpretor" -- Just start executing the code line by line
+// "interpretor" -- Just start executing the code line by line there is no any syntext checking before the execution.
 // "compiler" -- First scan the code and convert it into optimised code and then start executing the code line by line.
 // JS engine pass the code into three phases 1) parsing -- break the code into token and do the syntex parsing and create the AST that is 
 // abstract syntex tree of the code.This Abstract syntex tree is then pass to the compiler.
@@ -457,7 +459,7 @@
 // The function as an argument is called as the callback function. Higher order function is used to make the moduler code.
 // map -- it is used to tranform the array.
 // filter -- it is used to filter the values of array based on some conditions.
-// reduce -- 
+// reduce -- it is used when we want to shrink the result. It uses changes with requirements.
 
 
 // const radius = [4,3,9,6,5]
