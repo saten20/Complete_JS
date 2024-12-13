@@ -4,7 +4,7 @@
 
 
 const no = new Number(234.67532);
-console.log(no.toFixed(3));
+console.log(no.toFixed(2));
 console.log(no.toPrecision(4));
 
 console.log(Math.floor(4.6));

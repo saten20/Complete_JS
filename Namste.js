@@ -25,6 +25,11 @@
 // All let and const variable are hoisted that is they got the memeory in the memory creation phase but value is not initialze yet.
 // From Hositing to , till the time let const vairable are unintialize are called as temporal dead zone.
 // And we can not access the variable in the temporal dead zone.
+// console.log(x);
+// let x = 103;
+
+
+
 
 
 
@@ -159,7 +164,7 @@
 // setTimeout( ()=>{console.log("Hii")}, 1000)
 
 // Main Thread -- call stack is called as the main thread
-// if the function in the callstack taking to much time then it will block rest of the function execution.
+// if the function in the callstack taking to much time to execute then it will block rest of the function execution.
 // This is called as blocking the main thread.
 
 
@@ -168,17 +173,17 @@
 //*************************** call back hell / pyramid of doom ********************
 
 // callback is a way to handling the async operation in JS.we pass the callback function in settimeout and it will execute as we want.
-// when we pass one callback inside other callback  and so on then it is called as callback hell.
+// "callback hell " -- when we pass one callback inside other callback  and so on then it is called as callback hell.
 // "Inversion of control" -- we pass the callback function to third party api and we trust that this api will execute our callback
-// but there may be changes that , api call the callback twice, or not call the callback.so we loose the control on our code
-// This is called as inversion of control that is losoing the control on our code.
+// but there may be chances that , api call the callback twice, or not call the callback.so we loose the control on our code
+// This is called as inversion of control that is loosing the control on our code.
 
 // const cart = ["shoe", "pant", "shirt"]
-// AudioParam.createOrder(cart, function(){
+// api.createOrder(cart, function(){
 //     api.proceedPayment(function(){
 //         api.genereateBill(function(){
 //             api.updatewalllet(function(){
-
+//                    console.log("wallet is updated")
 //             })
 //         })
 //     })
@@ -215,7 +220,7 @@
 
 // Promise.any([])
 // Promise.any will wait for the first resolve promise. The first promise which resolve it will return the result of that promise.
-// if none of the promise get resolve then it will return an array of aggrigated error. array of all the error given by the promise.
+// if none of the promise get resolve then it will return an array of aggrigated error. array of all the error given by the each promise.
 // There is an array of error which contain all the error.
 
 
@@ -269,8 +274,8 @@
 // But JS engine not wait there. JS engin suspend the function from the call stack and move that function into to the event queue.
 // As a result callstack is not blocked, it will execute the other function.
 // When the time is completed JS engine take that function from the event queue and put it into the callstack and execute it.
-// And then the  line below the await will execute. Again if there is await then JS suspend that function from callstack and put it into event queue.
-// As a result main callstack never blocked.
+// And then the  line below the await will execute. Again if there is other await then JS suspend that function from callstack and put it
+// into event queue.As a result main callstack never blocked.
 // what if event queue function is not executed or some error arises , then to handle that we used try catch block.
 
 // we used the async await to do the asynchronous operation. We used it in fetech() method. fetch will return the Promise.
@@ -428,7 +433,7 @@
 // web API registor the task and that function is poped off from the call stack.When web API done with the requested task like fetching web page,
 // or setTimeout timer expire it push that callback inside the event queue(setTimeout,setInterval, dom) or microtask queue(fetch, then, catch).
 // microtask queue has higher priorites.microtask queue store the promises and mutalOberver.
-// There is event Loop which keep on checking is callstack empty and there exsist any function inside the queue, if yes then event queue
+// There is event Loop which keep on checking is callstack empty and does there exsist any function inside the queue, if yes then event queue
 // will pick the function from the queue and push it into the call stack. also that function is removed from the queue.
 // Event loop only push the callback from the queue once the callstack is empty.it continuosly keep on checking.
 // First microtask queue is executed and when there is no callback left then event queue callback will be executed.
@@ -443,10 +448,11 @@
 // JS is interpretor as well as compiler lanaguage.
 // "interpretor" -- Just start executing the code line by line there is no any syntext checking before the execution.
 // "compiler" -- First scan the code and convert it into optimised code and then start executing the code line by line.
-// JS engine pass the code into three phases 1) parsing -- break the code into token and do the syntex parsing and create the AST that is 
-// abstract syntex tree of the code.This Abstract syntex tree is then pass to the compiler.
-// 2) Compilation -- compiler do the just in time compliation that is interpretor execute the code line by line and compiler take that line and optimised it.
-// SO js support both compilation and interpretation, it  depends on the JS engine.
+// JS engine pass the code into three phases 
+// 1) parsing -- break the code into token and do the syntex parsing and create the AST that is abstract syntex tree of the code.
+// This Abstract syntex tree is then pass to the compiler.
+// 2) Compilation -- compiler do the just in time compliation that is interpretor execute the code line by line and compiler take that line and 
+// optimised it.SO js support both compilation and interpretation, it  depends on the JS engine.
 // Now compile code is converted into byte and pass to the execution phase.
 // 3) Execution phase has memory heap and call stack. it also have garbage collector which uses mark and sweep algorithm  to free the memory
 // from the heap which is not in used.
@@ -459,7 +465,7 @@
 // The function as an argument is called as the callback function. Higher order function is used to make the moduler code.
 // map -- it is used to tranform the array.
 // filter -- it is used to filter the values of array based on some conditions.
-// reduce -- it is used when we want to shrink the result. It uses changes with requirements.
+// reduce -- it is used when we want to shrink the result. It's uses changes with requirements.
 
 
 // const radius = [4,3,9,6,5]

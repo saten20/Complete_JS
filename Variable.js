@@ -13,14 +13,14 @@
 // console.table([id, rollno, sname, val1, val2]);
 
 
-
+var me = "saten"
+var me = 2453;
 function call(){
-    let me = "Satendra"; 
     console.log(me);
 }
 call();
-me = "Rahul";
 console.log(me)
+call();
 
 
 
