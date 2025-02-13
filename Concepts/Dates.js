@@ -1,8 +1,8 @@
 const createDate = new Date();
-// console.log(createDate);
-// console.log(createDate.toString());
-// console.log(createDate.toLocaleString());
-// console.log(createDate.toDateString())
+console.log(createDate);
+console.log(createDate.toString());
+console.log(createDate.toLocaleString());
+console.log(createDate.toDateString())
 
 const ownDate = new Date('2030 1 4');
 // console.log(ownDate.toDateString());

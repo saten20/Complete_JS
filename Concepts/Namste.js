@@ -1,7 +1,8 @@
 //****************************global Execution Context******************
 
 // Javascript is synchronous single threaded programming language.
-// single threaded -- execute single command at a time
+// synchronous -- execute single command at a time / single line at a time
+// single threaded -- we have only one call stack.
 // when js program run js engine create two things global execution context and global object that is window.
 // global execution context [memory creation phase (1) | code execution phase (2)]
 // This thing will be maintain by the call stack.
@@ -13,28 +14,20 @@
 
 // *****************Hoisting********************
 
-// it is a phenomenon in JS using which we can access the function before it's intialization.The behind reason is Execution Context.
+// it is a phenomenon in JS using which we can access the function and variable before it's intialization.The reason behind it  is Execution Context.
 // Before the code execution phase first the memory creation happend. so all the variable got the memory and function also got the memory.
 // All the variable store the undefind value in the memory creation phase. during code execution they got the actual value. 
-// Because of that we are able to use the function and variable before it's defination.
+// Because of that we are able to use the function and variable before it's defination or intialization.
 // All var variable is attached to the global object and present in the global memory space.
-// let const variable are also hoisted. but they behave differently then the var.
-// let and const are not attached with the global object and they are present in the different memory space then global memory space.
+// let , const variable are also hoisted. but they behave differently then the var.
+// let and const are not attached with the global object instead they are present in the different memory space then global memory space.
 
 // "Temporal Dead Zone" -- 
-// All let and const variable are hoisted that is they got the memeory in the memory creation phase but value is not initialze yet.
-// From Hositing to , till the time let const vairable are unintialize are called as temporal dead zone.
+// All let and const variable are hoisted  that is they got the memeory in the memory creation phase but value is not initialze yet.
+// From Hositing to , till the time let const vairable are unintialized are called as temporal dead zone.
 // And we can not access the variable in the temporal dead zone.
 // console.log(x);
 // let x = 103;
-
-
-
-
-
-
-
-
 
 
 
@@ -45,12 +38,12 @@
 
 // so when we run the js program , JS will create the two things global execution context and global object.
 // global scope means any thing declare outside the function.
-// All the function and variable declare in the global scope is attached with the global object i.e window in case of chrome.
-// we can access all the variable and function as window.variabelName or window.functionCall().
+// All the function and var variable declare in the global scope is attached with the global object i.e window in case of chrome.
+// we can access all the var variable and function as window.variabelName or window.functionCall().
 // In case of chrome browser we call the global object as window but in other browser they may be different.
 // this is the keyword which also created when we run js program. this point to the window object.
 // setTimeout, Dom, fetch, localstorage, these feture are not present in JS. These feature is provided by the browser.
-// So all these api is injected in the global object.
+// So all these api is injected in the global object called window, and with the help of window object we are able to access all that features.
 
 
 
@@ -68,28 +61,30 @@
 
 // **********************Lexical scopping and Closure*********************
 
-// Lexical scope = local memory + reference to parent's lexical scope.
+// Lexical scope = local memory + reference to parent's lexical scope(Execution Context).
 // Inner function have the access of the outer function(parent function) variable.This is called as lexical scopping.
 // But two inner function can not share the variable between themself.
-// Outer function or global scope can not access the variable of inner  because inner function's execution context is not created yet.
+// Outer function or global scope can not access the variable of inner  function because inner function's execution context is not created yet.
 
+// "scope chaining"
 // Inner function first search the username in it's execution context . if it is not found then it will start seraching in it's parent lexical
-// execution context  it will keep on searching till it reaches the Global execution context of the running program.
+// execution context.  it will keep on searching till it reaches the Global execution context of the running program.
 // This is called as "scope chaining".
-// global Execution context parent points to it' parent lexical scope which is null.
+// global Execution context  points to it' parent lexical scope which is null.
 
 // closure--
-// Function along with  reference to it's lexical scope form a closure.
+// Function along with  reference to it's lexical scope form a closure.(function bind together with it's lexical environment)
 // when we return the function in JS it returns it's lexical scope also(scope chaining) that is we are able to access all the variable which is 
 // there in the lexical scope.This is what we called as closure.
 // Fuction return the reference not the actual values.
+// JavaScript functions always remember the context (or lexical scope) in which they were created. This means that even after the outer 
 // advantages - data hiding, encapsulation, higher order function (memoize, once)
 // disadvanatges - waste of memory
 
 // In the below function setTimeout function remember the reference of i.
-// so when again function comes to callstack once time is done it will print the value present at i location
+// so when again function comes to callstack once time is expire it will print the value present at i location
 // In case of let , block memory is created so 5 i block is created.
-// In case of var since it is present in the global scope so there is only one value which become 6.
+// In case of var since it is present in the global scope so there is only one copy  of i which become 6.
 
 
 // function callme(){
@@ -98,9 +93,23 @@
 //             console.log(i)
 //         }, i * 1000)
 //     }
+//     console.log("Hello")
 // }
 // callme();
 
+// function a(){                            // execution context of x and y will distroy once a() call is done.
+//     var b = 1210;                        // But when we call val() still b value will be print. This is because x remember it's 
+//     function y(){                        // lexical environment.This is what closure is.
+//         function x(){
+//             console.log(b);
+//         }
+//         return x;
+//     }
+//     return y();
+// }
+
+// const val = a();
+// val();
 
 
 // function a(){
@@ -121,14 +130,23 @@
 //*****************************Block Scope********************
 // {} this is what we called the block scope. it is used to group the multiple statement and used it when js expected the single statement.
 // let and const are block scope variable since they got the memory in diiferent scope not in global scope.
-// "shadowing" -- inner variable will shadow the outer variable so when we access the value inside block that value will be display.
-// Variable declare inside the Function  shadow the global variable.
+// "shadowing" -- inner variable will shadow the outer variable so when we access the value inside block we will get the access of the 
+// closest variable.
+// var Variable declare inside the Function  shadow the global variable.
+
 
 // let a = 10;
 // {
 //     let a = 20;
 //     console.log(a);
 // }
+
+
+// let a = 10;            // This is called as illegal shadowing.
+// {
+//     var a = 120
+// }
+
 
 
 
@@ -145,16 +163,37 @@
 //     console.log("Function expression");
 // }
 
+// Named function expression
+// let res3 = function abs(){console.log("This is named function expression")}
+
 // Anonymous function -- function which does not have any name, it is used when we want to use function as a value.
 // function(){}
 
-// Named function expression
-// let res3 = function abs(){console.log("This is named function expression")}
 
 // first class function -- when we pass function as an argument or when we return the function then it is called first class function
 // This ability of doing it is called as first class function. it is also known as first class citizen.
 
+// function check(parm){
+//     console.log(parm)
+// }
+
+// function abc(){
+//     console.log("Hii")
+// }
+// check(abc)
+
+
 // Arrow function -- let val = ()=>{console.log("Hello")}
+// if we have only one line in the arrow function then there is no need to specify the return keyword and use () instead of {} i.e ()=>().
+
+// const value = (num1, num2) =>{
+//     return num1 + num2
+// }
+// console.log(value(100, 200));
+
+// const value = (num1, num2) =>(num1 + num2);
+// console.log(value(10, 20));
+
 
 
 
@@ -169,13 +208,106 @@
 
 
 
+//***************************Event Loop (power of browser) *********************************
+
+// There are so many fetures that are provided by the browser.storage, timer,doing network call, rendoring, server communication etc.
+// Js engine is present inside the browser , so what if JS engine wants to access all these fatures provided by the browser.
+// so browser provide the different API likes setTimeout, fetch, dom, console, localstorage, to access these feature Browser wrap all API
+// inside the window object, and by accesing window object we can access these features.
+
+// So whenever any Asynchronous operation like setTimeout, fetch are there in the code, that functions are hand off to web API.
+// web API registor the task in web API environment and that function is poped off from the call stack.
+// When web API done with the requested task like fetching web page, or setTimeout timer expire it push that callback inside the event
+//  queue(setTimeout,setInterval, dom) or microtask queue(fetch, then, catch).
+// microtask queue has higher priorites.microtask queue store the promises and mutalOberver.
+// There is event Loop which keep on checking is callstack empty and does there exsist any function inside the queue, if yes then event queue
+// will pick the function from the queue and push it into the call stack. also that function is removed from the queue.
+// Event loop only push the callback from the queue once the callstack is empty.it continuosly keep on checking.
+// First microtask queue is executed and when there is no callback left then event queue callback will be executed.
+// There may be situation that event queue not get the chance to execute there callback , so this condition is called as starvation.
+// That's why it is not guranteed that setTimeout will execute exactly when it's time is expired.
+
+
+
+//************************ JS Engine ****************************
+
+// JS environment is needed to run the JS program. JS environment contain JS engine, Web API's, queues, event loop.
+// JS is interpretor as well as compiler lanaguage.
+// "interpretor" -- Just start executing the code line by line there is no any syntext checking before the execution.
+// "compiler" -- First scan the code and convert it into optimised code and then start executing the code line by line.
+// JS engine pass the code into three phases 
+// 1) parsing -- break the code into token and do the syntex parsing and create the AST that is abstract syntex tree of the code.
+// This Abstract syntex tree is then pass to the interpretor.
+// 2) Compilation -- modern js engine do the just in time compliation that is interpretor execute the code line by line and compiler take that
+//  code and optimised it.SO js support both compilation and interpretation, it  depends on the JS engine.
+// Now compile code is converted into byte and pass to the execution phase.
+// 3) Execution phase has memory heap and call stack. it also have garbage collector which uses mark and sweep algorithm  to free the memory
+// from the heap which is not in used.
+
+
+
+
+//********************************* Higher order function ************************
+// function which take other function as an argument or return the function is called as the higher order function.
+// The function as an argument is called as the callback function. Higher order function is used to make the moduler code.
+// With the help of the higher order function we acheive the functional programming.
+// map -- it is used to transform the array.
+// filter -- it is used to filter the values of array based on some conditions.
+// reduce -- it is used when we want to shrink the result. It's uses changes with requirements.
+
+
+// const radius = [4,3,9,6,5]
+// const area = function (radius){
+//     return 2 * 3.14 * radius
+// }
+
+// const calculate = function(radius, area){
+//     const output = []
+//     for(let i = 0; i < radius.length; i++){
+//         output.push(area(radius[i]))
+//     }
+//     return output
+// }
+// console.log(calculate(radius, area))
+
+// console.log(radius.map(area))
+
+// const val = radius.map((r,i, radius)=>{
+//     //console.log(r, i, radius)
+//     return 2 * 3.14 * r
+// })
+// console.log(val)
+
+
+// const arr = [
+//     {
+//         id:1,
+//         price:100
+//     },
+//     {
+//         id:2,
+//         price:100
+//     },
+//     {
+//         id:3,
+//         price:100
+//     }
+// ]
+
+// const op = arr.reduce((acc, curr)=>{
+//     return curr.price + acc;
+// }, 400)
+// console.log(op)
+
+
 
 //*************************** call back hell / pyramid of doom ********************
 
 // callback is a way to handling the async operation in JS.we pass the callback function in settimeout and it will execute as we want.
+// There are Two disadvantages of using callback
 // "callback hell " -- when we pass one callback inside other callback  and so on then it is called as callback hell.
 // "Inversion of control" -- we pass the callback function to third party api and we trust that this api will execute our callback
-// but there may be chances that , api call the callback twice, or not call the callback.so we loose the control on our code
+// but there may be chances that ,the  api call the callback twice, or not call the callback.so we loose the control on our code
 // This is called as inversion of control that is loosing the control on our code.
 
 // const cart = ["shoe", "pant", "shirt"]
@@ -206,12 +338,12 @@
 // "Promise.all([])"
 // it is used when we want to execute the multiple promise at the same time.suppose we want to fetch data of 10 userid from server then we will use it.
 // Promise.all() will execute successfully if all the promise resolve(). it will wait for all the promise to resolve.
-// if any one of the promise is rejected then it will direct throw the error at that point of time. it will not wait for reset of the promise.
+// if any one of the promise is rejected then it will direct throw the error at that point of time. it will not wait for rest of the promises.
 // it throw the same error as that of the return by the failed promise.
 
 // "Promise.allSettled([])"
-// it is same as Pomise.all() the only difference is that it will wait till all the promise get executed.it will give the same size result
-// array in which all the fulfilled and rejejcted promise value present.
+// it is same as Pomise.all() the only difference is that it will wait till all the promise get executed/settled(wether they rejected or resolve).
+// it will give the same size result. array in which all the fulfilled and rejejcted promise values present.
 
 // Promise.race([])
 // it will wait till the first promise is settled(that is either rejected or resolve).
@@ -221,7 +353,7 @@
 // Promise.any([])
 // Promise.any will wait for the first resolve promise. The first promise which resolve it will return the result of that promise.
 // if none of the promise get resolve then it will return an array of aggrigated error. array of all the error given by the each promise.
-// There is an array of error which contain all the error.
+
 
 
 // const p1 = new Promise((resolve, reject) =>{
@@ -229,7 +361,7 @@
 //     //     resolve("Promise p1 success")
 //     // }, 3000)
 //     setTimeout(()=>{
-//         reject("Promise p1 reject")
+//         resolve("Promise p1 reject")
 //     }, 3000)
 // })
 // const p2 = new Promise((resolve, reject) =>{
@@ -238,7 +370,7 @@
 //     // }, 1000)
 //     setTimeout(()=>{
 //         reject("Promise p2 reject")
-//     }, 1000)
+//     }, 4000)
 // })
 // const p3 = new Promise((resolve, reject) =>{
 //     setTimeout(()=>{
@@ -249,10 +381,10 @@
 //     // }, 2000)
 // })
 
-// // const p = Promise.all([p1, p2, p3]);
-// // const p = Promise.allSettled([p1, p2, p3])
-// // const p = Promise.race([p1, p2, p3])
-// const p = Promise.any([p1, p2, p3])
+//  // const p = Promise.all([p1, p2, p3]);
+//  // const p = Promise.allSettled([p1, p2, p3])
+//  // const p = Promise.race([p1, p2, p3])
+// // const p = Promise.any([p1, p2, p3])
 // p.then((data)=>{
 //     console.log(data)
 // })
@@ -271,20 +403,24 @@
 // but if it is already returning the promise then it do nothing, it will return that promise as it is.
 // await is used inside the async function only. we can not used the await outside the async function.
 // await will stop the execution of the code where the await is written.below line is not executed until the await is executed.
-// But JS engine not wait there. JS engin suspend the function from the call stack and move that function into to the event queue.
+// But JS engine not wait there. JS engin suspend the function from the call stack and move that function into to the event/microtask queue.
 // As a result callstack is not blocked, it will execute the other function.
-// When the time is completed JS engine take that function from the event queue and put it into the callstack and execute it.
+// When the timer is completed JS engine take that function from the event queue and put it into the callstack and execute it.
 // And then the  line below the await will execute. Again if there is other await then JS suspend that function from callstack and put it
 // into event queue.As a result main callstack never blocked.
-// what if event queue function is not executed or some error arises , then to handle that we used try catch block.
+// what if event/microtask queue function is not executed or some error arises , then to handle that we used try catch block.
 
 // we used the async await to do the asynchronous operation. We used it in fetech() method. fetch will return the Promise.
 // That promise may be resolved or rejected.
-// But if we handle the promise with then() catch() block then below the then() catch() block line is executed whether promise is resolve
+// But if we handle the promise with then() catch() block then below the then() catch() block line is executed wether promise is resolve
 // immedalty or after some time.
 // But async await in background uses the then() catch() block only, async await is just the alternate way of handling the promise.
 
 
+
+// In the below example we are using await still both the p1 and p2 timer is started.
+// This is because when the promise is created it is registor in the web API environment immedalty.
+// As a result timer of both the promises are started. only the execution of the program is suspended at p1.
 
 
 
@@ -300,7 +436,7 @@
 //     }, 5000)
 // })
 
-// // function handlepromise(){
+// // function handlepromise(){                       // Handling the promise with then catch block.
 // //     p.then((data)=>{
 // //         console.log(data)
 // //     })
@@ -310,8 +446,8 @@
 // //     console.log("This is the next line")
 // // }
 // // handlepromise();
-
-// async function handlePromise(){
+ 
+// async function handlePromise(){                 // Handling the promise with async await 
 //     const val1 = await p1
 //     console.log("Promise p1 executed")
 //     console.log(val1);
@@ -353,17 +489,19 @@
 
 //************************************ this keyword **************************
 
+// this represent the current context. i.e it store the address of the object in which it is used.
 // In global space this represent the global object that is window in case of browser. this point to the global object
 // The value of this inside the function behave differently, in case of non-strict mode value of this inside the function is global object.
-// This happen due to the this substitution. But incase of strict mode it is undefind.
+// This happen due to the this substitution.initially it is null, JS will replace it with global object. 
+// But incase of strict mode value of this is undefind.
 
 // this inside the object represent the object.
 // The function that we defind inside the object is called as the method of that object.
 
-// "call" -- with the help of the call we can pass the our execution context(our this) to other function.
+// "call" -- with the help of the call we can pass  our execution context(our this) to other function.
 // So other function will use our execution context rather then using it's own
 
-// arrow function does not have there own this, it retain the this value of lexical scope where it is defind.
+// arrow function does not have there own this, instead it retain the this value of lexical scope of , where it is defind.
 // this inside the arrow function represent the lexical context of, where it is defind.
 // if arrow funtion is present inside the function and function present inside the object. Then this keyword inside the arrow function will represent
 // the object because lexical scope of function is object only where arrow function is defind.
@@ -412,80 +550,10 @@
 //     a:124,
 //     x:function(){      // lexical scope where arrow funtion is defind is object. so this inside the arrow function represent the object.
 //         const val = ()=>{
-//             console.log(this)
+//             console.log(this.a)
 //         }
 //         val()
 //     }
 // }
 // obj.x()
 
-
-
-
-//***************************Event Loop (power of browser) *********************************
-
-// There are so many fetures that are provided by the browser.storage, timer,doing network call, rendoring, server communicatio etc.
-// Js engine is present inside the browser , so what if JS engine want to access all these fatures provided by the browser.
-// so browser provide the different API likes setTimeout, fetch, dom, console, localstorage to access these feature.
-// Browser wrap all API inside the window object, and by accesing window object we can access these features.
-
-// So when ever any Asynchronous operation like setTimeout, fetch are there in the code, that functions are hand off to web API.
-// web API registor the task and that function is poped off from the call stack.When web API done with the requested task like fetching web page,
-// or setTimeout timer expire it push that callback inside the event queue(setTimeout,setInterval, dom) or microtask queue(fetch, then, catch).
-// microtask queue has higher priorites.microtask queue store the promises and mutalOberver.
-// There is event Loop which keep on checking is callstack empty and does there exsist any function inside the queue, if yes then event queue
-// will pick the function from the queue and push it into the call stack. also that function is removed from the queue.
-// Event loop only push the callback from the queue once the callstack is empty.it continuosly keep on checking.
-// First microtask queue is executed and when there is no callback left then event queue callback will be executed.
-// There may be chance that event queue not get the chanace to execute there callback , so this condition is called as starvation.
-// That's why it is not guranteed that setTimeout will execute exactly when it's time is expired.
-
-
-
-//************************ JS Engine ****************************
-
-// JS environment is needed to run the JS program. JS environment contain JS engine, Web API's, queues, event loop.
-// JS is interpretor as well as compiler lanaguage.
-// "interpretor" -- Just start executing the code line by line there is no any syntext checking before the execution.
-// "compiler" -- First scan the code and convert it into optimised code and then start executing the code line by line.
-// JS engine pass the code into three phases 
-// 1) parsing -- break the code into token and do the syntex parsing and create the AST that is abstract syntex tree of the code.
-// This Abstract syntex tree is then pass to the compiler.
-// 2) Compilation -- compiler do the just in time compliation that is interpretor execute the code line by line and compiler take that line and 
-// optimised it.SO js support both compilation and interpretation, it  depends on the JS engine.
-// Now compile code is converted into byte and pass to the execution phase.
-// 3) Execution phase has memory heap and call stack. it also have garbage collector which uses mark and sweep algorithm  to free the memory
-// from the heap which is not in used.
-
-
-
-
-//********************************* Higher order function ************************
-// function which take other function as an argument or return the function is called as the higher order function.
-// The function as an argument is called as the callback function. Higher order function is used to make the moduler code.
-// map -- it is used to tranform the array.
-// filter -- it is used to filter the values of array based on some conditions.
-// reduce -- it is used when we want to shrink the result. It's uses changes with requirements.
-
-
-// const radius = [4,3,9,6,5]
-// const area = function (radius){
-//     return 2 * 3.14 * radius
-// }
-
-// const calculate = function(radius, area){
-//     const output = []
-//     for(let i = 0; i < radius.length; i++){
-//         output.push(area(radius[i]))
-//     }
-//     return output
-// }
-// console.log(calculate(radius, area))
-
-// console.log(radius.map(area))
-
-// const val = radius.map((r,i, radius)=>{
-//     //console.log(r, i, radius)
-//     return 2 * 3.14 * r
-// })
-// console.log(val)

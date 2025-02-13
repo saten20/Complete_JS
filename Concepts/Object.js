@@ -29,6 +29,7 @@
 
 
 
+
 // const mykey = Symbol("keyone");        // using the symbol as a key
 
 // const accountDetails = {
@@ -57,7 +58,7 @@
 // 1. object can be create by using the Object constructor
 // 2. To mereg the object we use the spread operator i.e {...obj1, ...obj2}. it return the new object which is collection of the mention object
 // 3. Object.key(obj)  --> it will return the keys of the obj  in the form of the array
-// 4. Object.values(obj)  --> return the values of the obj
+// 4. Object.values(obj)  --> return the values of the obj in the form of array.
 
 
 
@@ -99,4 +100,6 @@
 // console.log(name);
 // console.log(mail);
 // console.log(status);
+
+
 

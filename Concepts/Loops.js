@@ -55,7 +55,7 @@
 
 // 1. for in loop --> for(const it in arr) 
 // 2. we can not iterate in map using for in loop
-// 3. object is easy iterable using the for in loop  --> for(const key in obj){obj[key]}
+// 3. object is easly iterable using the for in loop  --> for(const key in obj){obj[key]}
 // 4. when we iterate in array it give us the index of the array.
 
 
@@ -99,7 +99,7 @@
 // 2. it take callback function as an  argument , with three parameter (item , index, completArray)
 // 3. In the case of the map (mapvalue, key, fullmap)
 // 4. it can not be used with the object
-// 5. forEach() loop does not return anything , but what if we want something in return based on the condtion then for that we used filter(() => {})
+// 5. forEach() loop does not return anything , but what if we want something in return based on the condition then for that we used filter(() => {})
 
 
 
@@ -188,10 +188,10 @@
 /********************   map *************/
 
 
-// 1. map is also array's predefind method
+// 1. map is also array's predefind method.it is used to tranform the array
 // 2. map( () => { }) , it also take the three arguments (item , index, completeArray)
-// 3. map is used when we want to modify the data. it return the data
-// 3. we can perform the chaining also in the map , inbetween we can use the filter also
+// 3. map is used when we want to modify the data. it return the modified data
+// 3. we can perform the chaining also in the map , in-between we can use the filter also
 // 4. when we apply the filter, from left map return the value to the right one and at the end last map return the value.
 
 
@@ -206,20 +206,20 @@
 // console.log(score);
 
 
-// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// const newarr = arr.
-//                 map( (num)=>{
-//                     return num * 10;
-//                 })
-//                 .map((num) =>{
-//                     return num + 1
-//                 })
-//                 .filter( (num)=>{
-//                     return num > 40
-//                 })
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const newarr = arr.
+                map( (num)=>{
+                    return num * 10;
+                })
+                .map((num) =>{
+                    return num + 1
+                })
+                .filter( (num)=>{
+                    return num > 40
+                })
 
 
-// console.log(newarr);
+console.log(newarr);
 
 
 
