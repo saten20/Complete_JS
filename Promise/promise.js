@@ -5,8 +5,8 @@
 // first we have to create the promise then we will consume the promise.
 // The syntex of the promise creation , const promise = new Promise(()=>{//code}) 
 // Promise Either reject or resolve.
-// then((data)=>{}) then block is used to handle if promise is resolve.
-// catch((error)=>{}) catch block is used to handle if promise is reject.
+// then((data)=>{}) then block is used to handle other work if promise is resolve.
+// catch((error)=>{}) catch block is used to handle other work if promise is reject.
 // finally(()=>{}) finally block will execute always.
 
 // we will put all the data inside the resolve()  block that we want when promise will resolve.
@@ -20,7 +20,7 @@
 
 // try{} catch(e){} block is used to handle the error.
 // response.json() is also take time so we have to use the (await response.json()).since response always comes in string form so 
-// we have to convert it into json form using .json.
+// we have to convert it into json form using json() method.
 // fetch() method also return the promise that can be handle using async await or by using then() catch() block.
 
 

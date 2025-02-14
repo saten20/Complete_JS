@@ -7,19 +7,19 @@
 // setTimeout() will execute only once.
 
 // setTimeout does not guaranteed that it will execute as the time expired.
-// event loop will first check the call stack if call stack is empty then only event loop will pick the callback from the queue and put it into
-// call stack. But if there are function or global execution context which are taking  long time to execute then setTimeout callback function
+// event loop will first check the call stack if call stack is empty then only event loop will pick the callback function from the queue and put it into
+// call stack. But if there are function or global execution context which are taking  more time to execute then setTimeout callback function
 // will not get the callstack to complete it's execution. That's why it is not guaranteed that setTimeout will execute as it's time expires.
 // And there may be callback inside the microtask queue which has the higher priority then the event queue.so event loop will put that callback
-// first into the callstack.
+// function first into the callstack.
 // Even if the Timeout time is 0 second still i has to go through the step of operation like setTimeout will registor the callback into the 
 // web API and that callback push into the event queue and from there it will push into the callstack with the help of the event loop.
 
-console.log("start")
-setTimeout(()=>{
-    console.log("callback")
-}, 0)
-console.log("End")
+// console.log("start")
+// setTimeout(()=>{
+//     console.log("callback")
+// }, 0)
+// console.log("End")
 
 //*********************** setInterval(()=>(), time, "argument") and clearInterval() *************
 
@@ -50,5 +50,4 @@ console.log("End")
 // }
 
 // setInterval(intervalcall, 2000, "satendra")
-
 

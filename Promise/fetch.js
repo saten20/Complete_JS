@@ -6,7 +6,6 @@
 // second parameter is header in which we can pass object, body , data etc.
 // As we know all the async function call is registor in the task queue and fetch function is registor in microtask queue(priority queue).
 // microtask queue have the highest priority.
-// hence fetch method first enter in the call stack and execute first then the setTimeout() and setInterval will enter and execute.
 
 
 
